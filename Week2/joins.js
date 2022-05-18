@@ -1,6 +1,7 @@
 const AUTHOR_NAME_QUERY = `
-	SELECT author_name, mentor 
-	FROM authors;
+	SELECT authors.author_name, A.author_name AS mentor_name
+	FROM authors
+	JOIN authors as A ON A.mentor = authors.author_no;
 `;
 
 const AUTHOR_PAPER_QUERY = `
